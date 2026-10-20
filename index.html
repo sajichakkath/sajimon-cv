@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAJIMON M N — Curriculum Vitae</title>
+<style>
+  :root {
+    --brand: #2563eb;
+    --brand-2: #7c3aed;
+    --brand-3: #06b6d4;
+    --accent: #f59e0b;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --radius: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 28px auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .12);
+    overflow: hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    background: linear-gradient(120deg, var(--brand) 0%, var(--brand-2) 55%, var(--brand-3) 100%);
+    color: #fff;
+    padding: 38px 44px 30px;
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,.18), transparent 45%);
+    pointer-events: none;
+  }
+  .name {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    position: relative;
+  }
+  .title {
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 6px;
+    color: rgba(255,255,255,.92);
+    position: relative;
+  }
+  .badges { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+  .badge {
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.35);
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 18px;
+    position: relative;
+    font-size: 13.5px;
+    color: rgba(255,255,255,.95);
+  }
+  .contact span { display: inline-flex; align-items: center; gap: 7px; }
+  .contact svg { width: 15px; height: 15px; flex: none; }
+  .contact a { color: #fff; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,.6); }
+  .ref-no {
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,.85);
+    position: relative;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  main { padding: 30px 44px 40px; }
+  section { margin-bottom: 30px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .sec-title .dot {
+    width: 10px; height: 10px; border-radius: 3px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    flex: none;
+    transform: rotate(45deg);
+  }
+
+  .summary { color: var(--muted); font-size: 14.5px; }
+  .summary b { color: var(--ink); }
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .achievements { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .achieve {
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .achieve b { color: var(--brand-2); }
+  .achieve span { display: block; margin-top: 2px; color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- TABLES ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 520px; }
+  thead th {
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
+  tbody td { padding: 10px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+  tbody tr:nth-child(even) td { background: #f8fafc; }
+  td .minor { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  td.cell-strong { font-weight: 600; }
+
+  /* ---------- LISTS ---------- */
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    background: #eef2ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .lang { display: flex; flex-wrap: wrap; gap: 10px; }
+  .lang-card {
+    flex: 1 1 220px;
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .lang-card b { font-size: 14px; }
+  .lang-card .bar { margin-top: 8px; height: 7px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .lang-card .bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--brand), var(--brand-3)); }
+
+  /* ---------- REFERENCES ---------- */
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ref {
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .ref b { display: block; font-size: 14.5px; color: var(--ink); }
+  .ref .role { color: var(--brand-2); font-weight: 600; font-size: 12.5px; margin: 2px 0 6px; }
+  .ref .meta { color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- PERSONAL ---------- */
+  .personal { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 24px; font-size: 13.5px; }
+  .personal div { display: flex; gap: 8px; padding: 5px 0; border-bottom: 1px dashed var(--line); }
+  .personal div b { color: var(--muted); font-weight: 600; min-width: 92px; }
+
+  @media (max-width: 640px) {
+    header { padding: 26px 22px 22px; }
+    main { padding: 22px; }
+    .name { font-size: 26px; }
+    .achievements, .ref-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff; line-height: 1.3; }
+    .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px 26px 11px; }
+    thead th, .achieve, .ref, .lang-card, tbody tr:nth-child(even) td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    thead { display: table-header-group; }
+    tbody tr { break-inside: avoid; }
+
+    main { padding: 10px 26px 14px; }
+    section { margin-bottom: 10px; }
+
+    .name { font-size: 21px; }
+    .title { font-size: 12px; }
+    .badges { margin-top: 6px; gap: 4px; }
+    .badge { font-size: 10px; padding: 2px 9px; }
+    .contact { margin-top: 7px; font-size: 10.5px; gap: 3px 14px; }
+    .ref-no { font-size: 10.5px; margin-top: 5px; }
+
+    .sec-title { font-size: 14px; margin-bottom: 6px; }
+    .summary { font-size: 11.5px; }
+    .table-wrap { border-radius: 6px; }
+    table { font-size: 10.5px; min-width: 0; }
+    thead th { font-size: 9.5px; padding: 4px 9px; }
+    tbody td { padding: 4px 9px; }
+    td .minor { font-size: 9.5px; }
+
+    .achievements { gap: 6px; }
+    .achieve { padding: 6px 9px; font-size: 10.5px; border-radius: 6px; }
+    .achieve span { font-size: 10px; }
+
+    .pills { gap: 4px; }
+    .pill { font-size: 10px; padding: 1px 8px; }
+    .lang-card { padding: 6px 10px; }
+    .lang-card b { font-size: 11px; }
+    .lang .bar { margin-top: 4px; height: 4px; }
+
+    .personal { font-size: 10.5px; }
+    .personal div { padding: 2px 0; }
+    .personal div b { min-width: 70px; }
+    .ref { padding: 7px 10px; }
+    .ref b { font-size: 11px; }
+    .ref .meta { font-size: 10px; }
+    .ref .role { margin: 1px 0 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="name">SAJIMON M N</div>
+    <div class="title">IBDP Mathematics Teacher &amp; Examiner | QTS (England) | M.Sc. Mathematics | 20+ Years</div>
+    <div class="badges">
+      <span class="badge">QTS — England (2024, induction exempt)</span>
+      <span class="badge">IBDP Examiner (2021–Present)</span>
+      <span class="badge">Ex-Head of Department</span>
+      <span class="badge">AA &amp; AI · HL &amp; SL · MYP · IGCSE · A Level</span>
+    </div>
+    <div class="contact">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Suzhou, China
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +86 13739174599
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        saji288@gmail.com
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/sajimon-muppiniyil-narayanan-a9205b204/" target="_blank" rel="noopener">LinkedIn Profile</a>
+      </span>
+    </div>
+    <div class="ref-no">Teacher Reference Number: 2280280 &nbsp;|&nbsp; QTS Awarded: 11 July 2024 &nbsp;|&nbsp; Available from: July 2027</div>
+  </header>
+
+  <main>
+
+    <!-- SUMMARY -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Professional Summary</div>
+      <p class="summary">
+        <b>IBDP Mathematics teacher and examiner</b> with <b>20 years' classroom experience</b> across seven
+        countries, including eight years as <b>Head of Department</b>. I teach <b>both Diploma Programme
+        mathematics routes</b> — Analysis &amp; Approaches and Applications &amp; Interpretation — at HL and SL,
+        alongside MYP, IGCSE and AS/A Level. Hold <b>Qualified Teacher Status (England, 2024, induction exempt)</b>
+        and an <b>M.Sc. in Mathematics</b>. Since 2021 I have marked higher-level Diploma papers for the IB,
+        giving me an insider's command of mark schemes and internal assessment standards.
+      </p>
+    </section>
+
+    <!-- KEY ACHIEVEMENTS -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Key Achievements</div>
+      <div class="achievements">
+        <div class="achieve"><b>Qualified Teacher Status (England)</b> — awarded 11 July 2024, exempt from statutory induction.<span>Teacher Reference Number 2280280.</span></div>
+        <div class="achieve"><b>IBDP Examiner (2021–Present)</b> — appointed by the International Baccalaureate Organisation.<span>Marks higher-level mathematics papers.</span></div>
+        <div class="achieve"><b>World Certificate — Cambridge IGCSE Extended Mathematics</b> — a student I prepared received a World Certificate, June 2023.<span>Highest-attainment category, globally.</span></div>
+        <div class="achieve"><b>Both DP Mathematics Routes</b> — Analysis &amp; Approaches (HL/SL) and Applications &amp; Interpretation (HL/SL).<span>Few teachers can cover the full DP maths offer.</span></div>
+        <div class="achieve"><b>Head of Department, 8 Years</b> — led the mathematics department at Global Indian International School, Tokyo (2015–2023).<span>Curriculum design, staffing and assessment.</span></div>
+        <div class="achieve"><b>Degree-Level Mathematics Teaching</b> — Lectured Engineering Mathematics at undergraduate level, including statistics and modelling.<span>Directly supports AI HL content.</span></div>
+      </div>
+    </section>
+
+    <!-- TEACHING EXPERIENCE -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Teaching Experience</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Period</th><th>Role</th><th>Subject &amp; Level</th><th>School &amp; Location</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">Aug 2025 – Present</td>
+              <td>IBDP &amp; MYP Mathematics Teacher</td>
+              <td>IBDP Math: Applications &amp; Interpretation HL/SL, MYP Mathematics</td>
+              <td>EtonHouse International School, Suzhou, China</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Sep 2024 – Jul 2025</td>
+              <td>Secondary Mathematics Teacher</td>
+              <td>IBDP Math: Applications &amp; Interpretation HL, MYP 4 &amp; 5 Extended</td>
+              <td>International School Mainfranken, Schweinfurt, Germany</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Aug 2023 – Jul 2024</td>
+              <td>Secondary Mathematics Teacher</td>
+              <td>IBDP Math: Analysis &amp; Approaches HL &amp; SL, MYP 4 &amp; 5 Extended</td>
+              <td>Albanian College, Tirana, Albania</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Sep 2015 – Jul 2023</td>
+              <td>Head of Department / Secondary Mathematics Teacher</td>
+              <td>IBDP Mathematics (AA &amp; AI), IGCSE 0580 Mathematics (Extended)<div class="minor">Led department of mathematics staff; curriculum design, assessment and moderation</div></td>
+              <td>Global Indian International School, Tokyo, Japan</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Jan 2014 – May 2015</td>
+              <td>Secondary Mathematics Teacher</td>
+              <td>IGCSE, AS &amp; A Level Mathematics</td>
+              <td>Jaffery Cambridge International School, Arusha, Tanzania</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Dec 2011 – Dec 2013</td>
+              <td>Assistant Professor of Mathematics</td>
+              <td>Engineering Mathematics (degree level)<div class="minor">Statistics, modelling, differential equations and linear algebra</div></td>
+              <td>Malabar College of Technology, Kerala, India</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Jun 2007 – Nov 2011</td>
+              <td>Secondary Mathematics Teacher</td>
+              <td>IGCSE, AS &amp; A Level Mathematics</td>
+              <td>Ministry of Education, Maldives</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Jun 2005 – May 2007</td>
+              <td>Higher Secondary Teacher</td>
+              <td>Grade 11 &amp; 12 Mathematics</td>
+              <td>SMT. Govt. Higher Secondary School, Kerala, India</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- QUALIFICATIONS -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Qualifications</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Qualification</th><th>Institution</th><th>Subject / Specialism</th><th>Year</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-strong">Qualified Teacher Status (QTS)</td>
+              <td>Department for Education, United Kingdom</td>
+              <td>Mathematics (11–16)<div class="minor">Teacher Reference Number 2280280 · induction exempt</div></td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">M.Sc. Mathematics</td>
+              <td>S.N. College, University of Calicut, India</td>
+              <td>Mathematics</td>
+              <td>2004</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">Bachelor of Education (B.Ed.)</td>
+              <td>M.G. University, Kerala, India</td>
+              <td>Mathematics Education</td>
+              <td>2005</td>
+            </tr>
+            <tr>
+              <td class="cell-strong">B.Sc. Mathematics</td>
+              <td>S.N. College, University of Calicut, India</td>
+              <td>Mathematics, Physics, Statistics</td>
+              <td>2000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL DEVELOPMENT -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Professional Development</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Course / Training</th><th>Provider</th><th>Year</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ManageBac Training</td><td>ManageBac / Faria Education Group</td><td>2025</td></tr>
+            <tr><td>Microsoft 365 Certified: Educator &amp; Productivity Training</td><td>Microsoft</td><td>2026</td></tr>
+            <tr><td>IB MYP Mathematics — Category 1</td><td>IBO (Online)</td><td>2024</td></tr>
+            <tr><td>IBDP Examiner Training</td><td>IBO</td><td>2021</td></tr>
+            <tr><td>IBDP Mathematics — Internal Assessment</td><td>IBO (Online)</td><td>2021</td></tr>
+            <tr><td>IBDP Mathematics: Applications &amp; Interpretation SL</td><td>IBO (Online)</td><td>2019</td></tr>
+            <tr><td>IBDP Mathematics SL — Category 1</td><td>IBO (Online)</td><td>2018</td></tr>
+            <tr><td>Extended Cambridge IGCSE Mathematics (0580)</td><td>CAIE (Online)</td><td>2018</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SKILLS + LANGUAGES -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Skills &amp; Languages</div>
+      <p style="font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px;">Core Skills</p>
+      <div class="pills">
+        <span class="pill">IBDP AA HL/SL</span>
+        <span class="pill">IBDP AI HL/SL</span>
+        <span class="pill">MYP Mathematics</span>
+        <span class="pill">IGCSE 0580</span>
+        <span class="pill">AS / A Level</span>
+        <span class="pill">Internal Assessment</span>
+        <span class="pill">Assessment &amp; Moderation</span>
+        <span class="pill">Curriculum Design</span>
+        <span class="pill">Departmental Leadership</span>
+        <span class="pill">SEN / Inclusive Teaching</span>
+        <span class="pill">ManageBac</span>
+        <span class="pill">Microsoft 365</span>
+      </div>
+      <p style="font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin:18px 0 8px;">Languages</p>
+      <div class="lang">
+        <div class="lang-card">
+          <b>English</b><span style="display:block;color:var(--muted);font-size:12px;">Professional Proficiency</span>
+          <div class="bar"><i style="width:95%;"></i></div>
+        </div>
+        <div class="lang-card">
+          <b>Malayalam</b><span style="display:block;color:var(--muted);font-size:12px;">Native Speaker</span>
+          <div class="bar"><i style="width:100%;"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>References</div>
+      <div class="ref-grid">
+        <div class="ref">
+          <b>Mr. Aldwin Casas</b>
+          <div class="role">Head of Department</div>
+          <div class="meta">Global Indian International School, Tokyo</div>
+        </div>
+        <div class="ref">
+          <b>Mr. Eulalio Arcia</b>
+          <div class="role">Coordinator</div>
+          <div class="meta">EtonHouse International School, Suzhou</div>
+        </div>
+      </div>
+      <p class="summary" style="margin-top:10px; font-size:12.5px; font-style:italic;">
+        Full contact details and written references available on request.
+      </p>
+    </section>
+
+    <!-- PERSONAL DETAILS -->
+    <section>
+      <div class="sec-title"><span class="dot"></span>Additional Information</div>
+      <div class="personal">
+        <div><b>Nationality</b><span>Indian</span></div>
+        <div><b>Passport</b><span>Valid to April 2036</span></div>
+        <div><b>Availability</b><span>July 2027</span></div>
+        <div><b>Current Visa</b><span>China residence permit (transferable)</span></div>
+        <div><b>Right to Work</b><span>QTS-eligible for UK sponsorship</span></div>
+        <div><b>Years' Experience</b><span>20+</span></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
